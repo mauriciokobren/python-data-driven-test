@@ -12,7 +12,7 @@ In Trello you can create a board, add columns to define the workflow and then ad
 This project is based in python and it uses the following libraries:  
 
 **requests**  
-This library allows to send HTTP requests like get, post, put, delete. 
+This library allows to send HTTP requests like get, post, put, delete.  
 Website: https://requests.readthedocs.io/en/latest/  
 Installation: ```python -m pip install requests```  
 
@@ -35,13 +35,13 @@ With this in mind, two csv files were created to be used in the tests in this pr
 - **trello_api_update_cards.csv**: this file is used to test Card Edition. Each row represents a card. Part of the columns in the csv are used to create the card (card_name,card_desc,list) and the other part has the new values after the change (new_card_name,new_card_desc,new_list,status). At the moment this file has 4 rows, with different combinations of data representing different use cases.
 
 The file **test_trello_api.py** has the tests properly saying. 
-*test_card_creation* is defined in row 35: 
+*test_card_creation* is defined in row 35:  
 row 34: ```@pytest.mark.parametrize('card_name,card_desc,list,status', read_test_data_from_csv('trello_api_create_cards.csv'))```  
 row 35: ```def test_card_creation(card_name,card_desc,list,status):```  
 
 With *@pytest.mark.parametrize* pytest will run the *test_card_creation* for each row existing in the supplied csv file following the mapping defined by *'card_name,card_desc,list,status'*. It's important to note that the mapping order is equal to the arguments expected by *test_card_creation*.  
 
-In a similar way, *test_update_cards* is defined in row 61:
+In a similar way, *test_update_cards* is defined in row 61:  
 row 60: ```@pytest.mark.parametrize('card_name,card_desc,list,new_card_name,new_card_desc,new_list,status', read_test_data_from_csv('trello_api_update_cards.csv'))```  
 row 61: ```def test_update_cards(card_name,card_desc,list,new_card_name,new_card_desc,new_list,status):```  
 
@@ -54,8 +54,10 @@ Please visit the page below to see how to create API Key and Token:
 https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/#authentication-and-authorization  
 
 When creating a new card or editing an existing one, it's not needed to specify the board. However, the list (column board) is mandatory.  
-In the csv files I preferred to use the list name because it's more use friendly. However I created *get_list_id(list_name)* to get the list id based on the name informed in the argument.  
+In the csv files I preferred to use the list name because it's more user friendly. However I created *get_list_id(list_name)* to get the list id based on the name informed in the argument.  
 To help you discover the id of the lists in your Trello boards, I created *list_boards.py*. It will list the id and name for each list in each of your boards. To run it just call ``` python list_boards.py```.  
+
+After you have run the tests, you can delete the cards from your board by running ```remove_cards_from_lists.py```.  
 
 ## Running the test
 To run the tests just execute this command in your bash:  
