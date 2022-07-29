@@ -3,6 +3,7 @@ import requests
 import pytest
 import secrets
 
+""" variables with data used during the tests"""
 trello_apikey = secrets.trello_apikey
 trello_apitoken = secrets.trello_apitoken
 
