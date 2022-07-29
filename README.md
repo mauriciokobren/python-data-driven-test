@@ -65,7 +65,7 @@ To run the tests just execute this command in your bash:
 
 pytest-html plugin will create a beautiful html report in file *trello_api_ddt.htm* inside *report* folder.  
 You should also see test results in the console, similar to the image below:  
-![Sample report](report.png)  
+![Sample report](sample_test_result.png)  
 
 
 ## References
